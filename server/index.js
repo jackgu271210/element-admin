@@ -1,5 +1,8 @@
 const express = require('express')
 const app = express()
+const sd = require('silly-datetime')
+
+const time = sd.format(new Date(), 'YYYY-MM-DD HH:mm')
 
 app.use(express.json())
 app.use(require('cors')())
@@ -12,7 +15,9 @@ mongoose.connect('mongodb://localhost:27017/element-ui', {
 })
 const Article = mongoose.model('Article', new mongoose.Schema({
     title: { type: String },
-    body: { type: String }
+    category: { type: String },
+    body: { type: String },
+    time: { type: String, default: time }
 }))
 
 app.get('/', async (req, res) => {
@@ -21,6 +26,7 @@ app.get('/', async (req, res) => {
 // 新建文章
 app.post('/api/article', async (req, res) => {
     const article = await Article.create(req.body)
+    console.log(time)
     res.send(article)
 })
 // 文章列表

@@ -4,10 +4,11 @@
       <el-menu router :default-openeds="['1']">
         <el-submenu index="1">
           <template slot="title">
-            <i class="el-icon-document"></i>内容管理
+            <i class="el-icon-document"></i>新闻管理
           </template>
-            <el-menu-item index="/article/list">文章列表</el-menu-item>
-            <el-menu-item index="/article/create">新建文章</el-menu-item>
+          <el-menu-item index="/article/category">新闻类别</el-menu-item>
+          <el-menu-item index="/article/list">新闻列表</el-menu-item>
+          <el-menu-item index="/article/create">添加新闻</el-menu-item>
         </el-submenu>
       </el-menu>
     </el-aside>
@@ -47,9 +48,7 @@
 <script>
 export default {
   data() {
-    return {
-
-    }
+    return {};
   }
 };
 </script>

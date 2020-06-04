@@ -16,30 +16,30 @@
 export default {
   data() {
     return {
-        article: {
-
-        }
+      article: {}
     };
   },
   methods: {
     saveArticle() {
-      this.$http.put(`article/${this.$route.params.id}`, this.article).then(res => {
-        console.log(res.data)
-        this.$message({
-          message: '文章更新成功',
-          type: 'success'
+      this.$http
+        .put(`article/${this.$route.params.id}`, this.article)
+        .then(res => {
+          console.log(res.data);
+          this.$message({
+            message: "文章更新成功",
+            type: "success"
+          });
+          this.$router.push("/article/list");
         });
-        this.$router.push('/article/list')
-      })
     },
     fetch() {
-        this.$http.get(`article/${this.$route.params.id}`).then(res => {
-            this.article = res.data
-        })
+      this.$http.get(`article/${this.$route.params.id}`).then(res => {
+        this.article = res.data;
+      });
     }
   },
   created() {
-      this.fetch()
+    this.fetch();
   }
 };
 </script>

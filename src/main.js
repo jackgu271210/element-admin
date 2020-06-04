@@ -5,6 +5,9 @@ import './plugins/element.js'
 
 Vue.config.productionTip = false
 
+import SDTime from 'silly-datetime'
+Vue.prototype.$SDTime = SDTime
+
 import axios from 'axios'
 Vue.prototype.$http = axios.create({
   baseURL: 'http://localhost:3000/api'
