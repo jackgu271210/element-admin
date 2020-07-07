@@ -1,8 +1,13 @@
 import Vue from 'vue'
 import VueRouter from 'vue-router'
-import CreateArticle from '../views/CreateArticle.vue'
-import ListArticle from '../views/ListArticle.vue'
-import EditArticle from '../views/EditArticle.vue'
+
+import CreateArticle from '../views/article/CreateArticle.vue'
+import ListArticle from '../views/article/ListArticle.vue'
+import EditArticle from '../views/article/EditArticle.vue'
+
+import CreateUser from '../views/user/CreateUser.vue'
+import ListUser from '../views/user/ListUser.vue'
+import EditUser from '../views/user/EditUser.vue'
 
 Vue.use(VueRouter)
 
@@ -26,6 +31,21 @@ Vue.use(VueRouter)
     path: '/article/:id/edit',
     name: 'edit-article',
     component: EditArticle
+  },
+  {
+    path: '/user/list',
+    name: 'list-user',
+    component: ListUser
+  },
+  {
+    path: '/user/create',
+    name: 'create-user',
+    component: CreateUser
+  },
+  {
+    path: '/user/:id/edit',
+    name: 'edit-user',
+    component: EditUser
   }
 ]
 

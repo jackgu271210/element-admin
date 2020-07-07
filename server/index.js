@@ -4,6 +4,9 @@ const sd = require('silly-datetime')
 
 const time = sd.format(new Date(), 'YYYY-MM-DD HH:mm')
 
+const crypto = require('crypto')
+
+
 app.use(express.json())
 app.use(require('cors')())
 
@@ -14,10 +17,18 @@ mongoose.connect('mongodb://localhost:27017/element-ui', {
     useFindAndModify: true
 })
 const Article = mongoose.model('Article', new mongoose.Schema({
+    id: { type: Number },
     title: { type: String },
     category: { type: String },
     body: { type: String },
     time: { type: String, default: time }
+}))
+
+const User = mongoose.model('User', new mongoose.Schema({
+    username: { type: String },
+    password: { type: String },
+    rePassword: {type: String},
+    realname: { type: String }
 }))
 
 app.get('/', async (req, res) => {
@@ -50,6 +61,18 @@ app.get('/api/article/:id', async (req, res) => {
 app.put('/api/article/:id', async (req, res) => {
     const article = await Article.findByIdAndUpdate(req.params.id, req.body)
     res.send(article)
+})
+
+
+// 新建管理员
+app.post('/api/user', async (req, res) => {
+    const user = await User.create(req.body)
+    res.send(user)
+})
+// 管理员列表
+app.get('/api/user', async (req, res) => {
+    const user = await User.find()
+    res.send(user)
 })
 app.listen(3000, () => {
     console.log('http://localhost:3000/')

@@ -10,6 +10,13 @@
           <el-menu-item index="/article/list">新闻列表</el-menu-item>
           <el-menu-item index="/article/create">添加新闻</el-menu-item>
         </el-submenu>
+        <el-submenu index="1">
+          <template slot="title">
+            <i class="el-icon-user"></i>系统管理
+          </template>
+          <el-menu-item index="/user/list">管理员管理</el-menu-item>
+           <el-menu-item index="/user/create">添加管理员</el-menu-item>
+        </el-submenu>
       </el-menu>
     </el-aside>
 

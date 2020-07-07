@@ -1,9 +1,8 @@
 <template>
-  <el-table :data="article" border>
-    <el-table-column prop="id" label="ID" width="160"></el-table-column>
-    <el-table-column prop="title" label="标题"></el-table-column>
-    <el-table-column prop="category" label="分类" width="300"></el-table-column>
-    <el-table-column prop="time" label="日期" width="300"></el-table-column>
+  <el-table :data="user" border>
+    <el-table-column prop="username" label="管理员账号"></el-table-column>
+    <el-table-column prop="realname" label="真实姓名" width="300"></el-table-column>
+    <el-table-column prop="password" label="管理员密码" width="300"></el-table-column>
     <el-table-column fixed="right" label="操作" width="200">
       <template slot-scope="scope">
         <el-button @click="edit(scope.row._id)" type="primary" size="small" round>编辑</el-button>
@@ -16,20 +15,20 @@
 export default {
   data() {
     return {
-      article: []
+      user: []
     };
   },
   methods: {
     fetch() {
-        this.$http.get("article").then(res => {
-        this.article = res.data;
+        this.$http.get("user").then(res => {
+        this.user = res.data;
       });
     },
     edit(id) {
-      this.$router.push(`/article/${id}/edit`)
+      this.$router.push(`/user/${id}/edit`)
     },
     remove(id) {
-      this.$http.delete(`article/${id}`).then(res => {
+      this.$http.delete(`user/${id}`).then(res => {
         console.log(res);
         this.$message({
           message: '文章删除成功',
