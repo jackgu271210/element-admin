@@ -1,6 +1,10 @@
 import Vue from 'vue'
 import VueRouter from 'vue-router'
 
+import Login from '../views/Login.vue'
+import Register from '../views/Register.vue'
+import IndexArticle from '../views/IndexArticle.vue'
+
 import CreateArticle from '../views/article/CreateArticle.vue'
 import ListArticle from '../views/article/ListArticle.vue'
 import EditArticle from '../views/article/EditArticle.vue'
@@ -14,38 +18,54 @@ Vue.use(VueRouter)
   const routes = [
   {
     path: '/',
-    name: 'Home',
-    component: ListArticle
+    redirect: '/login'
   },
   {
-    path: '/article/list',
-    name: 'list-article',
-    component: ListArticle
+    path: '/login',
+    name: 'login',
+    component: Login
   },
   {
-    path: '/article/create',
-    name: 'create-article',
-    component: CreateArticle
+    path: '/register',
+    name: 'register',
+    component: Register
   },
   {
-    path: '/article/:id/edit',
-    name: 'edit-article',
-    component: EditArticle
-  },
-  {
-    path: '/user/list',
-    name: 'list-user',
-    component: ListUser
-  },
-  {
-    path: '/user/create',
-    name: 'create-user',
-    component: CreateUser
-  },
-  {
-    path: '/user/:id/edit',
-    name: 'edit-user',
-    component: EditUser
+    path: '/article',
+    name: 'index-article',
+    component: IndexArticle,
+    children: [
+      {
+        path: '/article/list',
+        name: 'list-article',
+        component: ListArticle
+      },
+      {
+        path: '/article/create',
+        name: 'create-article',
+        component: CreateArticle
+      },
+      {
+        path: '/article/:id/edit',
+        name: 'edit-article',
+        component: EditArticle
+      },
+      {
+        path: '/user/list',
+        name: 'list-user',
+        component: ListUser
+      },
+      {
+        path: '/user/create',
+        name: 'create-user',
+        component: CreateUser
+      },
+      {
+        path: '/user/:id/edit',
+        name: 'edit-user',
+        component: EditUser
+      }
+    ]
   }
 ]
 

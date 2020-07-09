@@ -6,30 +6,12 @@ const time = sd.format(new Date(), 'YYYY-MM-DD HH:mm')
 
 const crypto = require('crypto')
 
+const { Article, User } = require('./model.js')
+
 
 app.use(express.json())
 app.use(require('cors')())
 
-const mongoose = require('mongoose')
-mongoose.connect('mongodb://localhost:27017/element-ui', {
-    useNewUrlParser: true,
-    useCreateIndex: true,
-    useFindAndModify: true
-})
-const Article = mongoose.model('Article', new mongoose.Schema({
-    id: { type: Number },
-    title: { type: String },
-    category: { type: String },
-    body: { type: String },
-    time: { type: String, default: time }
-}))
-
-const User = mongoose.model('User', new mongoose.Schema({
-    username: { type: String },
-    password: { type: String },
-    rePassword: {type: String},
-    realname: { type: String }
-}))
 
 app.get('/', async (req, res) => {
     res.send('Hello')
