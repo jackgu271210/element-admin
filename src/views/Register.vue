@@ -57,7 +57,7 @@ export default {
       } else {
         callback();
       }
-    };
+    } ;
     return {
       userForm: {
         username: '',
@@ -94,7 +94,7 @@ export default {
             // 成功、失败及提交时验证 TODO
             console.log(res.data)
             this.$message({
-              message: '新建用户成功',
+              message: '注册成功',
               type: 'success'
             });
             this.$router.push('/login')

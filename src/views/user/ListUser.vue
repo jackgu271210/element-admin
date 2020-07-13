@@ -1,8 +1,8 @@
 <template>
   <el-table :data="user" border>
-    <el-table-column prop="username" label="管理员账号"></el-table-column>
-    <el-table-column prop="realname" label="真实姓名" width="300"></el-table-column>
-    <el-table-column prop="password" label="管理员密码" width="300"></el-table-column>
+    <el-table-column prop="username" label="管理员账号" width="300  "></el-table-column>
+    <el-table-column prop="mail" label="邮箱" width="300"></el-table-column>
+    <el-table-column prop="password" label="管理员密码"></el-table-column>
     <el-table-column fixed="right" label="操作" width="200">
       <template slot-scope="scope">
         <el-button @click="edit(scope.row._id)" type="primary" size="small" round>编辑</el-button>

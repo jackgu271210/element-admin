@@ -59,7 +59,7 @@ export default {
             });
             localStorage.token = res.data.token;
             console.log(localStorage.token)
-            this.$router.push({path: '/articles', query: {username: res.data.user.username}}) 
+            this.$router.push({path: '/article/list', query: {username: res.data.user.username}})
           }).catch(err => {
             if (err) {
               this.$message({
