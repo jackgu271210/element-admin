@@ -11,7 +11,7 @@ const Article = mongoose.model('Article', new mongoose.Schema({
     id: { type: Number },
     title: { type: String },
     category: { type: String },
-    body: { type: String },
+    content: { type: String },
     time: { type: String, default: time }
 }, { timestamps: { createdAt: 'created', updateAt: 'updated' } }))
 
@@ -26,6 +26,16 @@ const User = mongoose.model('User', new mongoose.Schema({
     phone: { type: String },
     mail: { type: String }
 }, { timestamps: { createdAt: 'created', updateAt: 'updated' } }))
+
+const Company = mongoose.model('Company', new mongoose.Schema({
+    companyName: {type: String},
+    contact: {type: String},
+    telephone: {type: String},
+    email: {type: String},
+    postCode: {type: String},
+    website: {type: String},
+    address: {type: String}
+}))
 
 
 module.exports = { Article, User }

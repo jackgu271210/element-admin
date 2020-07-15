@@ -10,7 +10,7 @@
       </el-select>
     </el-form-item>
     <el-form-item label="文章内容">
-      <el-input type="textarea" v-model="article.body"></el-input>
+      <quill-editor ref="myTextEditor" v-model="article.content" :options="editorOption"></quill-editor>
     </el-form-item>
     <el-form-item>
       <el-button type="primary" native-type="submit">立即创建</el-button>
@@ -19,13 +19,23 @@
   </el-form>
 </template>
 <script>
+import 'quill/dist/quill.core.css';
+import 'quill/dist/quill.snow.css';
+import 'quill/dist/quill.bubble.css';
+import { quillEditor } from 'vue-quill-editor';
 export default {
   data() {
     return {
+        editorOption: {
+          placeholder: 'hello world'
+        },
         article: {
 
         }
     };
+  },
+  components: {
+    quillEditor
   },
   methods: {
     saveArticle() {
@@ -41,3 +51,9 @@ export default {
   }
 };
 </script>
+
+<style>
+ .ql-container {
+   height: 400px;
+ }
+</style>

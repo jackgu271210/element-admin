@@ -24,7 +24,7 @@
             <template slot="title">
               <i class="el-icon-tickets"></i>公司信息
             </template>
-            <el-menu-item index="/user/list">公司资料</el-menu-item>
+            <el-menu-item index="/company/info">公司资料</el-menu-item>
             <el-menu-item index="/user/list">独立频道SEO</el-menu-item>
           </el-submenu>
           <el-submenu index="4">

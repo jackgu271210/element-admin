@@ -54,6 +54,12 @@ app.post('/api/login', async(req, res) => {
     })
 })
 
+// 新建公司信息
+app.post('/api/company', async (req, res) => {
+    const company = await Company.create(req.body)
+    res.send(company)
+})
+
 // 新建文章
 app.post('/api/article', async (req, res) => {
     const article = await Article.create(req.body)

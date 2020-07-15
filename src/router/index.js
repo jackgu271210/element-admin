@@ -5,9 +5,12 @@ import Login from '../views/Login.vue'
 import Register from '../views/Register.vue'
 import IndexArticle from '../views/IndexArticle.vue'
 
+import CompanyInfo from '../views/company/CompanyInfo.vue'
+
 import CreateArticle from '../views/article/CreateArticle.vue'
 import ListArticle from '../views/article/ListArticle.vue'
 import EditArticle from '../views/article/EditArticle.vue'
+import ArticleDetail from '../views/article/ArticleDetail.vue'
 
 import CreateUser from '../views/user/CreateUser.vue'
 import ListUser from '../views/user/ListUser.vue'
@@ -36,6 +39,11 @@ Vue.use(VueRouter)
     component: IndexArticle,
     children: [
       {
+        path: '/company/info',
+        name: 'company-info',
+        component: CompanyInfo
+      },
+      {
         path: '/article/list',
         name: 'list-article',
         component: ListArticle
@@ -49,6 +57,11 @@ Vue.use(VueRouter)
         path: '/article/:id/edit',
         name: 'edit-article',
         component: EditArticle
+      },
+      {
+        path: '/article/:id/detail',
+        name: 'detail-article',
+        component: ArticleDetail
       },
       {
         path: '/user/list',
